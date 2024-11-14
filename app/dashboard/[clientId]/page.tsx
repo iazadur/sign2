@@ -9,10 +9,10 @@ export default async function Page({
     .populate({
       path: "contracts.contractId",
       model: "Contract",
-      populate: {
-        path: "insuranceId",
-        model: "Insurance",
-      },
+      // populate: {
+      //   path: "insuranceId",
+      //   model: "Insurance",
+      // },
     })
     .exec();
   if (!data) {

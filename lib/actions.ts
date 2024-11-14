@@ -5,15 +5,16 @@ import Client from "./models/Client";
 import clientValidationSchema, {
   ClientValidationErrors,
 } from "./validation/client.validation";
+import Contract from "./models/Contract";
 
 export async function createUser(
   prevState: Record<string, unknown>,
   formData: FormData
 ): Promise<
   | {
-      message: string;
-      errors: ClientValidationErrors;
-    }
+    message: string;
+    errors: ClientValidationErrors;
+  }
   | undefined
 > {
   console.log("prev state", prevState);
@@ -81,4 +82,22 @@ export async function createUser(
     message: "Client created successfully",
     errors: {},
   };
+}
+
+
+export async function submitSignature(contractId: string, signatureData: string) {
+  console.log("signatureData", contractId);
+  // Do something with the signature data
+  const result =  await Contract.findByIdAndUpdate(contractId, {
+    signature: signatureData,
+    signed: true,
+    signedDate: new Date(),
+  });
+  // const result = await Contract.findOneAndUpdate({ clientId: clientId }, {
+  //   signature: signatureData,
+  //   signed: true,
+  //   signedDate: new Date(),
+  // })
+  console.log("result", result);
+  // Redirect to the next page
 }
