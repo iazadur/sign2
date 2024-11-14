@@ -4,16 +4,19 @@ import { pickContracts } from "@/lib/actions/pickContractActions";
 import { SubmitButton } from "./common/button";
 import { useFormState } from "react-dom";
 import { contractList } from "@/lib/validation/contract.validation";
+import { useSearchParams } from "next/navigation";
 
-interface PickContractFormProps {
-  id: string;
-}
+// interface PickContractFormProps {
+//   id: string;
+// }
 
 const initialState = {
   message: "",
 };
 
-export default function PickContractForm({ id }: PickContractFormProps) {
+export default function PickContractForm() {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("client") || "";
   const [state, formAction] = useFormState(
     (state: any, formData: any) => pickContracts(id, formData),
     initialState

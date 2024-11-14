@@ -1,0 +1,21 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    # depends_on:
+    #   - backend
+    #   - mongo
+  # mongo:
+  #   image: mongo:6.0  # Using a stable version of MongoDB
+  #   container_name: my-mongodb
+  #   restart: unless-stopped
+  #   ports:
+  #     - "27099:27017"  # MongoDB accessible on localhost:27099
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: iazadur
+  #     MONGO_INITDB_ROOT_PASSWORD: iazadur
+  #   volumes:
+  #     - ./data1:/data/db

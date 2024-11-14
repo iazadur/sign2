@@ -5,9 +5,10 @@ export default async function Page({
 }: {
   params: { clientId: string };
 }) {
+  console.log("clientId", clientId);
   return (
     <div className="">
-      <PickContractForm id={clientId} />
+      <PickContractForm />
     </div>
   );
 }
