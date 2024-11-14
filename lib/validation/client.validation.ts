@@ -8,7 +8,7 @@ const clientValidationSchema = z.object({
     address: z.string().min(3, "Address must be at least 3 characters").max(255, "Address must be at most 255 characters"),
     city: z.string().min(3, "City must be at least 3 characters").max(255, "City must be at most 255 characters"),
     state: z.string().min(2, "State must be at least 2 characters").max(50, "State must be at most 50 characters"),
-    zip: z.string().min(5, "Zip code must be at least 5 characters").max(10, "Zip code must be at most 10 characters"),
+    zip: z.string().min(4, "Zip code must be at least 4 characters").max(10, "Zip code must be at most 10 characters"),
     claimInsurance: z.enum(["yes", "no"]),
     // contracts?: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "Invalid ObjectId")), // Assuming ObjectId is a 24-character hex string
 });

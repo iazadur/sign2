@@ -1,3 +1,4 @@
+// StartHereForm
 'use client'
 import { useFormState } from 'react-dom'
 import { createUser } from '@/lib/actions'
@@ -14,7 +15,7 @@ const initialState = {
 
 export default function StartFromHere() {
     const [state, formAction] = useFormState((state: any, formData: any) => createUser(state, formData), initialState)
-    console.log("state", state)
+
     return (
         <div className="w-full min-h-screen bg-white">
             <form

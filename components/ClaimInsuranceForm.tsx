@@ -12,7 +12,7 @@ const initialState = {
     errors: {} as ClientValidationErrors,
 }
 
-export default function StartFromHere() {
+export default function ClaimInsuranceForm() {
     const [state, formAction] = useFormState((state: any, formData: any) => createUser(state, formData), initialState)
     console.log("state", state)
     return (

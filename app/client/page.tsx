@@ -3,10 +3,10 @@
 
 import { useFormState } from 'react-dom'
 import { createUser } from '@/lib/actions'
-import { SubmitButton } from './_components/button'
+import { SubmitButton } from '@/components/common/button'
 
 import { ClientValidationErrors } from '@/lib/validation/client.validation'
-import TextInput from './_components/TextInput'
+import TextInput from '@/components/common/TextInput'
 
 
 const initialState = {
@@ -14,11 +14,11 @@ const initialState = {
     errors: {} as ClientValidationErrors,
 }
 
-export default function Signup() {
+export default function StartFromHere() {
     const [state, formAction] = useFormState((state: any, formData: any) => createUser(state, formData), initialState)
     console.log("state", state)
     return (
-        <div className="w-full h-screen bg-white">
+        <div className="w-full min-h-screen bg-white">
             <form
                 action={formAction}
                 className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-lg"
@@ -86,7 +86,7 @@ export default function Signup() {
                     <label className="block text-gray-700 font-medium mb-2">
                         Claim Insurance
                     </label>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 text-gray-700">
                         <label className="inline-flex items-center">
                             <input
                                 type="radio"

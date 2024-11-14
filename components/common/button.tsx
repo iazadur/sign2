@@ -2,7 +2,7 @@
 
 import { useFormStatus } from 'react-dom'
 
-export function SubmitButton() {
+export function SubmitButton({ children }: { children?: React.ReactNode }) {
   const { pending } = useFormStatus()
 
   return (
@@ -11,7 +11,7 @@ export function SubmitButton() {
       disabled={pending}
       className="w-full py-3 mt-4 text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg focus:outline-none focus:ring focus:ring-indigo-500"
     >
-      Submit
+      {children || 'Submit'}
     </button>
   )
 }
